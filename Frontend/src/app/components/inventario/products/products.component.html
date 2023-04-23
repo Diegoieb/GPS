@@ -1,0 +1,48 @@
+<form (submit)="crearProducto()">
+
+  <div class="card flex flex-column md:flex-row gap-3">
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-user"></i>
+      </span>
+      <input pInputText placeholder="Nombre" [(ngModel)]="name" name="name" />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-align-center"></i>
+      </span>
+      <input pInputText placeholder="Descripcion" [(ngModel)]="description" name="description" />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">$</span>
+      <input type="text" pInputText placeholder="Precio" [(ngModel)]="price" name="price" />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-lock"></i>
+      </span>
+      <input pInputText placeholder="Codigo" [(ngModel)]="code" name="code" />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-lock"></i>
+      </span>
+      <input pInputText placeholder="stock" [(ngModel)]="stock" name="stock" />
+    </div>
+
+    <button type="submit">Guardar</button>
+
+    <ng-container *ngIf="estado==true">
+
+    <div class="card">
+        <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+    </div>
+    </ng-container>
+    <ng-container *ngIf="estado==false">
+      <div>
+        <p>no funca</p>
+      </div>
+    </ng-container>
+
+  </div>
+</form>
