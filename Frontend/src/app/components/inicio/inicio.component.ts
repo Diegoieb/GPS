@@ -14,7 +14,7 @@ export class InicioComponent {
   producto: any[]=[];
   productoD: any;
   productFinal: any[]=[];
-
+  cols:any;
 constructor(private productoS: ProductoService){
 }
 ngOnInit(){
@@ -26,8 +26,16 @@ ngOnInit(){
 
     console.log(this.producto);
   });
+
+  this.cols = [
+    { field: 'code', header: 'Codigo' },
+    { field: 'name', header: 'Nombre' },
+    { field: 'description', header: 'Descripcion' },
+    { field: 'stock', header: 'Stock' },
+    { field: 'price', header: 'Precio' }
+];
+
+
   }
-
-
 
 }
