@@ -1,48 +1,118 @@
-<form (submit)="crearProducto()">
 
-  <div class="card flex flex-column md:flex-row gap-3">
-    <div class="p-inputgroup">
-      <span class="p-inputgroup-addon">
-        <i class="pi pi-user"></i>
-      </span>
-      <input pInputText placeholder="Nombre" [(ngModel)]="name" name="name" />
-    </div>
-    <div class="p-inputgroup">
-      <span class="p-inputgroup-addon">
-        <i class="pi pi-align-center"></i>
-      </span>
-      <input pInputText placeholder="Descripcion" [(ngModel)]="description" name="description" />
-    </div>
-    <div class="p-inputgroup">
-      <span class="p-inputgroup-addon">$</span>
-      <input type="text" pInputText placeholder="Precio" [(ngModel)]="price" name="price" />
-    </div>
-    <div class="p-inputgroup">
-      <span class="p-inputgroup-addon">
-        <i class="pi pi-lock"></i>
-      </span>
-      <input pInputText placeholder="Codigo" [(ngModel)]="code" name="code" />
-    </div>
-    <div class="p-inputgroup">
-      <span class="p-inputgroup-addon">
-        <i class="pi pi-lock"></i>
-      </span>
-      <input pInputText placeholder="stock" [(ngModel)]="stock" name="stock" />
-    </div>
+<div class="card" >
+  <h1 class="title">Productos</h1>
+  <p-table
+      [value]="products"
+      [paginator]="true"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[5,10]"
+  >
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Nombre</th>
+              <th >Descripcion</th>
+              <th >Precio</th>
+              <th >Codigo</th>
+              <th >Stock</th>
+              <th >Accion</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-customer>
+          <tr>
+              <td>{{ customer.name}}</td>
+              <td>{{ customer.description }}</td>
+              <td>{{ customer.price}}</td>
+              <td>{{ customer.code }}</td>
+              <td>{{ customer.stock }}</td>
+              <td><p-button class="margin" icon="pi pi-times" styleClass="p-button-rounded p-button-danger " (onClick)="eliminarP(customer._id)" ></p-button>
+                  <p-button class="margin" icon="pi pi-bell" styleClass="p-button-rounded p-button-warning " (onClick)="mostrarDatosActualizar(customer._id)"></p-button>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+          <p-button type="button" icon="pi pi-plus" styleClass="p-button-rounded" (onClick)="mostrarDatosInsertar()"></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+      </ng-template>
+  </p-table>
+</div>
+<div class="card flex justify-content-center">
+  <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
 
-    <button type="submit">Guardar</button>
-
-    <ng-container *ngIf="estado==true">
-
-    <div class="card">
-        <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
-    </div>
-    </ng-container>
-    <ng-container *ngIf="estado==false">
-      <div>
-        <p>no funca</p>
+    <ng-container  *ngIf="insert">
+      <form (submit)="crearProducto()">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-user"></i>
+          </span>
+          <input [value]="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" pInputText placeholder="Nombre" />
       </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input [(ngModel)]="description" [ngModelOptions]="{standalone: true}" pInputText placeholder="Descripcion" />
+    </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input [(ngModel)]="price" [ngModelOptions]="{standalone: true}" pInputText placeholder="Precio" />
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input [(ngModel)]="code" [ngModelOptions]="{standalone: true}" pInputText placeholder="Codigo" />
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input [(ngModel)]="stock" [ngModelOptions]="{standalone: true}" pInputText placeholder="Stock" />
+      </div>
+      <p-button type="submit" label="Guardar" icon="pi pi-check"></p-button>
+    </form>
+
     </ng-container>
 
-  </div>
-</form>
+    <ng-container *ngIf="update">
+    <form (submit)="updateProduct(id)">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-user"></i>
+          </span>
+          <input [value]="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" pInputText placeholder="Nombre" />
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input [(ngModel)]="description" [ngModelOptions]="{standalone: true}" pInputText placeholder="Descripcion" />
+    </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input [(ngModel)]="price" [ngModelOptions]="{standalone: true}" pInputText placeholder="Precio" />
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-user"></i>
+        </span>
+        <input [(ngModel)]="code" [ngModelOptions]="{standalone: true}" pInputText placeholder="Codigo" />
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input [(ngModel)]="stock" [ngModelOptions]="{standalone: true}" pInputText placeholder="Stock" />
+      </div>
+      <p-button type="submit" label="Guardar" icon="pi pi-check"></p-button>
+    </form>
+  </ng-container>
+  </p-dialog>
+</div>

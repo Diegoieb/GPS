@@ -16,8 +16,16 @@ import { UserComponent } from './components/administracion/user/user.component';
 import { CloseCashComponent } from './components/caja/close-cash/close-cash.component';
 import { MessagesModule } from 'primeng/messages';
 import { DockModule } from 'primeng/dock';
-
-
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { DialogModule } from 'primeng/dialog';
+import { MenubarModule } from 'primeng/menubar';
+import { SaleProductComponent } from './components/ventas/sale-product/sale-product.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +34,9 @@ import { DockModule } from 'primeng/dock';
     ProductsComponent,
     SaleComponent,
     UserComponent,
-    CloseCashComponent
+    CloseCashComponent,
+    MenuBarComponent,
+    SaleProductComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +47,15 @@ import { DockModule } from 'primeng/dock';
     CheckboxModule,
     RadioButtonModule,
     MessagesModule,
-    DockModule
+    DockModule,
+    TableModule,
+    ButtonModule,
+    MegaMenuModule,
+    PanelMenuModule,
+    TabMenuModule,
+    DialogModule,
+    MenubarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

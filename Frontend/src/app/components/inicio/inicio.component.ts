@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
-
+import { ProductoService } from 'src/app/service/producto.service';
 
 
 @Component({
@@ -8,28 +7,27 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent {
-  items: MenuItem[]=[];
 
-  position: string = 'left';
-  ngOnInit() {
-    this.items = [
-        {
-            label: 'Finder',
-            icon: '../../../assets/sinfondo.png'
-        },
-        {
-            label: 'App Store',
-            icon: 'https://primefaces.org/cdn/primeng/images/dock/appstore.svg'
-        },
-        {
-            label: 'Photos',
-            icon: 'https://primefaces.org/cdn/primeng/images/dock/photos.svg'
-        },
-        {
-            label: 'Trash',
-            icon: 'https://primefaces.org/cdn/primeng/images/dock/trash.png'
-        }
-    ];
+
+
+export class InicioComponent {
+  producto: any[]=[];
+  productoD: any;
+  productFinal: any[]=[];
+
+constructor(private productoS: ProductoService){
 }
+ngOnInit(){
+  this.productoS.getProduct().subscribe(data=>{
+    this.productoD=data;
+    console.log(data);
+    this.producto= this.productoD.product;
+    this.productFinal= this.producto.filter((productF)=>productF.stock<10);
+
+    console.log(this.producto);
+  });
+  }
+
+
+
 }

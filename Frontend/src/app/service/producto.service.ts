@@ -31,5 +31,8 @@ export class ProductoService {
   getProductByCode(code: number){
     return this.http.get(`${uri}/${code}`);
   }
+  getProductById(id: string){
+    return this.http.get(`${uri}/${id}`)
+  }
 
 }

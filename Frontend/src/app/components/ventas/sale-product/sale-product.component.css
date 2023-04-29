@@ -1,12 +1,7 @@
 .marge{
+  display:flex;
   justify-content: center;
 }
 .table{
   border: 1px solid black;
-}
-.title{
-  text-align: center;
-}
-.margin{
-  margin-left: 5px;
 }

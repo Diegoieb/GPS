@@ -1,1 +1,18 @@
-<p>sale works!</p>
+
+<div class="card">
+  <p-table [columns]="cols" [value]="saleProducts" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th *ngFor="let col of columns">
+                  {{ col.header }}
+              </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-saleProduct let-columns="columns">
+          <tr>
+              <td>{{(saleProduct.date)}}</td>
+              <td>{{saleProduct.total}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>

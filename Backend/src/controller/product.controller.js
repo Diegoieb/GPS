@@ -61,9 +61,9 @@ const deleteProduct = (req, res) => {
     })
 }
 //searchById
-const searchProductById = (req, res) =>{
+const searchProductByCode = (req, res) =>{
     let code = req.params.code;
-    Product.find(code,(err, product)=>{
+    Product.find({code:code},(err, product)=>{
         if(err){
             return res.status(500).send({message:'Error interno'});
         }
@@ -73,4 +73,17 @@ const searchProductById = (req, res) =>{
         res.status(200).send({product});
     })
 }
-module.exports = {getProduct, insertProduct, updateProduct, deleteProduct, searchProductById};
+
+const searchProductById = (req, res) =>{
+    let id = req.params._id;
+    Product.findById(id,(err, product)=>{
+        if(err){
+            return res.status(500).send({message:'Error interno'});
+        }
+        if(!product){
+            return res.status(404).sen({message:'No se encontro el producto'});
+        }
+        res.status(200).send({product});
+    })
+}
+module.exports = {getProduct, insertProduct, updateProduct, deleteProduct, searchProductById, searchProductByCode};
