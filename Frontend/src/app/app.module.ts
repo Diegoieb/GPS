@@ -26,6 +26,8 @@ import { DialogModule } from 'primeng/dialog';
 import { MenubarModule } from 'primeng/menubar';
 import { SaleProductComponent } from './components/ventas/sale-product/sale-product.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     UserComponent,
     CloseCashComponent,
     MenuBarComponent,
-    SaleProductComponent
+    SaleProductComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
