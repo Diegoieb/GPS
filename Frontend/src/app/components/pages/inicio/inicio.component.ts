@@ -11,6 +11,7 @@ import { ProductoService } from 'src/app/service/producto.service';
 
 
 export class InicioComponent {
+
   producto: any[]=[];
   productoD: any;
   productFinal: any[]=[];

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  mostrarHeader = false;
+  mostrarSidebar = false;
   name : any;
   password : any;
   //crear modelo de interface

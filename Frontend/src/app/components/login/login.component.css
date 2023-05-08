@@ -1,27 +1,16 @@
-* {
-  box-sizing: border-box;
-}
-html,
-body {
-  background-image: "../../../assets/p2.jpg";
-}
-h1 {
-  margin: 0;
-  padding: 0;
-}
+
 .custom-form {
   min-width: 300px;
-  max-width: 60%;
-  margin: 0px auto;
+  max-width: 600px;
+  margin: 10rem auto 0;
   background: rgba(255, 255, 255, 0.1);
   padding: 2rem 3rem;
-  margin: auto;
   border-radius: 2.5rem;
   background-color: #ecf0f3;
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
   color: black;
-  margin-top: 10rem;
 }
+
 .custom-form input {
   display: block;
   margin: 2rem 0;
@@ -50,3 +39,6 @@ h1 {
   cursor: pointer;
 }
 
+.custom-form button:hover {
+  background-color: #007f5f;
+}
