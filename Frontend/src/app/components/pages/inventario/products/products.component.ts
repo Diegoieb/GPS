@@ -33,7 +33,7 @@ export class ProductsComponent {
     this.update=false;
     this.insert=true;
     const producto = {name: this.name, description: this.description, price: this.price, code: this.code, stock: this.stock};
-    this.http.post('http://localhost:3000/api/product', producto).subscribe(res=>{
+    this.serviceProduct.insertProduct(producto).subscribe(res=>{
       console.log(res);
       alert("Ingresado correctamente");
       window.location.reload();
@@ -72,7 +72,7 @@ eliminarP(id:string){
       this.insert=false;
       this.id=id;
       this.visible = true;
-      this.http.get(`http://localhost:3000/api/product/search/${id}`).subscribe(res=>{
+      this.serviceProduct.getProductById(id).subscribe(res=>{
         this.rest=res;
         this.name=this.rest.product.name;
         this.description=this.rest.product.description;
@@ -86,7 +86,7 @@ eliminarP(id:string){
 
 updateProduct(id:string){
   const product= {name:this.name, description:this.description, price:this.price, code:this.code, stock:this.stock};
-  this.http.put(`http://localhost:3000/api/product/${id}`, product).subscribe(res=>{
+  this.serviceProduct.updateProduct(product,id).subscribe(res=>{
     alert("Actualizado con exito");
     window.location.reload();
   },err=>{

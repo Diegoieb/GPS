@@ -2,6 +2,8 @@
 const express = require('express');
 const productController = require('../controller/product.controller.js');
 const router = express.Router();
+const middleware =require('../middleware/auth.js');
+
 router.get('/product',productController.getProduct);
 router.post('/product',productController.insertProduct);
 router.put('/product/:_id',productController.updateProduct);

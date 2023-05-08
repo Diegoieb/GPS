@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environment/environment';
 
-const uri ="http://localhost:3000/api/product";
+const uri = environment.URI+'/product';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,11 +20,7 @@ export class ProductoService {
     })
   }
   updateProduct(producto: any, id: string){
-    this.http.put(`${uri}/${id}`,producto).subscribe(res=>{
-      console.log(res);
-    },err=>{
-      console.log(err);
-    })
+    return this.http.put(`${uri}/${id}`,producto);
   }
   getProduct(){
     return this.http.get(uri);
@@ -32,7 +29,10 @@ export class ProductoService {
     return this.http.get(`${uri}/${code}`);
   }
   getProductById(id: string){
-    return this.http.get(`${uri}/${id}`)
+    return this.http.get(`${uri}/search/${id}`);
+  }
+  insertProduct(producto:any){
+    return this.http.post(uri,producto);
   }
 
 }

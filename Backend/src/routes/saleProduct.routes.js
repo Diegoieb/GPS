@@ -1,5 +1,6 @@
 'use strict'
 const express = require('express');
+const middleware=require('../middleware/auth.js');
 const saleProductController = require('../controller/saleProduct.controller.js');
 const router = express.Router();
 router.get('/saleProduct',saleProductController.getSaleProduct);
