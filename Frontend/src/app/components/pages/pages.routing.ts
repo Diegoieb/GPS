@@ -10,11 +10,15 @@ import { SaleComponent } from './ventas/sale/sale.component';
 
 const routes: Routes = [
   {
-    path: 'inicio',
+    path: '',
     component: PagesComponent,
     children: [
      
-
+      {
+        path: "inicio",
+        component: InicioComponent,
+     
+      },
       {
         path: "inventario/productos",
         component: ProductsComponent,

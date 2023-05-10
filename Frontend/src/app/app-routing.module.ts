@@ -9,7 +9,7 @@ import { PagesRoutingModule } from './components/pages/pages.routing';
 
 const routes: Routes = [
   {path:"**", component: LoginComponent, pathMatch:"full"},
-  {path:"", component: LoginComponent, pathMatch:"full"},
+
   
 ];
 
