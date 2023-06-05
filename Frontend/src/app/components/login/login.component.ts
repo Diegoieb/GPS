@@ -21,7 +21,7 @@ export class LoginComponent {
   login(){
     console.log(this.name);
     console.log(this.password);
-    if(this.name=="admin"&& this.password=="user"){
+    if(this.name=="jose"&& this.password=="12345"){
       this.router.navigate(['inicio']);
     }else{
       alert('Dato incorrecto');

@@ -23,11 +23,13 @@
               <td>{{ customer.product.code }}</td>
               <td>{{ customer.amountP }}</td>
               <td>{{ customer.subTotal }}</td>
-              <td><p-button icon="pi pi-sync" styleClass="p-button-rounded p-button-succes"></p-button></td>
+              <td><p-button icon="pi pi-sync" styleClass="p-button-rounded p-button-succes" ></p-button></td>
+              <td><p-button icon="pi pi-sync" styleClass="p-button-rounded p-button-succes" ></p-button></td>
           </tr>
       </ng-template>
       <ng-template pTemplate="paginatorleft">
-        <td><p-button icon="pi pi-plus" styleClass="p-button-rounded"></p-button></td>
+        <td><p-button icon="pi pi-plus" styleClass="p-button-rounded" (onClick)="insertProductSale(23, 1)"></p-button></td>
+        <td><p-button icon="pi pi-box" styleClass="p-button-rounded" (onClick)="saleProducts()"></p-button></td>
       </ng-template>
       <ng-template pTemplate="paginatorright">
       </ng-template>

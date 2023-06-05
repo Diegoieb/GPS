@@ -30,9 +30,10 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
+
 @NgModule({
   declarations: [
-    
+
     InicioComponent,
     UserComponent,
     CloseCashComponent,
@@ -42,11 +43,11 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     SidebarComponent,
     SaleComponent,
     SaleProductComponent,
-   
-  
+
+
   ],exports: [
-   
-        
+
+
     InicioComponent,
     UserComponent,
     CloseCashComponent,
@@ -56,7 +57,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     SidebarComponent,
     SaleComponent,
     SaleProductComponent,
-   
+    BrowserAnimationsModule
+
   ],
   imports: [
 
@@ -77,9 +79,9 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     DialogModule,
     MenubarModule,
     BrowserAnimationsModule
-  
 
- 
+
+
   ]
 })
 export class PagesModule { }
