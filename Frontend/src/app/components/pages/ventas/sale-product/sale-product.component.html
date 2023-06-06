@@ -2,7 +2,7 @@
 <div class="card" class="marge">
   <p-table
       class="table"
-      [value]="saleP"
+      [value]="productSale"
       [paginator]="true"
       [rows]="5"
       [showCurrentPageReport]="true"
@@ -18,20 +18,46 @@
               <th style="width:25%">Accion</th>
           </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-customer>
+      <ng-template pTemplate="body" let-product>
           <tr>
-              <td>{{ customer.product.code }}</td>
-              <td>{{ customer.amountP }}</td>
-              <td>{{ customer.subTotal }}</td>
-              <td><p-button icon="pi pi-sync" styleClass="p-button-rounded p-button-succes" ></p-button></td>
-              <td><p-button icon="pi pi-sync" styleClass="p-button-rounded p-button-succes" ></p-button></td>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="paginatorleft">
-        <td><p-button icon="pi pi-plus" styleClass="p-button-rounded" (onClick)="insertProductSale(23, 1)"></p-button></td>
-        <td><p-button icon="pi pi-box" styleClass="p-button-rounded" (onClick)="saleProducts()"></p-button></td>
+              <td>{{ product.code }}</td>
+              <td>{{ product.amount }}</td>
+              <td>{{ product.subTotal }}</td>
+              <td><p-button icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning" (onClick)="mostrarDialogo(product.code)"  ></p-button>&nbsp;
+              <p-button  icon="pi pi-times" styleClass="p-button-rounded p-button-danger" (onClick)="deleteP(product.code)"></p-button></td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="paginatorleft">
+            <td><p-button (click)="showDialog()" icon="pi pi-plus" label="Agregar Producto" styleClass="p-button-rounded"></p-button></td>
+            <div class="card flex justify-content-center">
+              <p-dialog header="Agregar Producto a la Venta" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+                <div class="row">
+                  <div class="col">
+                    <span class="p-float-label mb-4 mt-4 ">
+                      <input pInputText id="code" [(ngModel)]="codeS" (input)="searchProduct(codeS)" />
+                      <label htmlFor="username">Codigo</label>
+                    </span>
+                    <span class="p-float-label mb-4">
+                      <input pInputText id="amountP" [(ngModel)]="amountPS" />
+                      <label htmlFor="username">Cantidad</label>
+                    </span>
+                    <p-button icon="pi pi-bookmark" styleClass="p-button-rounded p-button-success" label="Agregar" (onClick)="buscaProductoInsertarVenta(codeS,amountPS)"></p-button>
+                  </div>
+                </div>
+              </p-dialog>
+            </div>
+
+            <p-dialog  header="Modificar Cantidad" [(visible)]="mostrar" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+              <p-inputNumber [(ngModel)]="cantity" [showButtons]="true" inputId="stacked" > </p-inputNumber>
+                  <p-button icon="pi pi-bookmark" styleClass="p-button-rounded p-button-success" label="Actualizar" (onClick)="updateP(cantity)"></p-button>
+            </p-dialog>
+
+
       </ng-template>
       <ng-template pTemplate="paginatorright">
+        <td><p-button (click)="closeSale()" icon="pi pi-check" label="Realizar Venta" styleClass="p-button-rounded p-button-success" ></p-button></td>
       </ng-template>
+
+
   </p-table>
 </div>

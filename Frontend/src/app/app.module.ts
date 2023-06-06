@@ -21,6 +21,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { DialogModule } from 'primeng/dialog';
 import { MenubarModule } from 'primeng/menubar';
+import { CardModule } from 'primeng/card';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -50,7 +51,8 @@ import { PagesModule } from './components/pages/pages.module';
     TabMenuModule,
     DialogModule,
     MenubarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

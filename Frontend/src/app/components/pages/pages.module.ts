@@ -28,6 +28,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { CardModule } from 'primeng/card';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 
 
@@ -78,7 +80,9 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     TabMenuModule,
     DialogModule,
     MenubarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CardModule,
+    InputNumberModule
 
 
 

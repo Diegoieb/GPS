@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  URI: 'https://backendgps-production.up.railway.app/api'
+  URI: 'http://localhost:3000/api/'
+  //colocar host del backend
 }
