@@ -9,13 +9,23 @@ import { SaleService } from 'src/app/service/sale.service';
 export class CloseCashComponent implements OnInit {
 
   constructor (private saleService: SaleService){ }
-
+ventas:any;
+return:any;
   sales: any[] = [];
 
   ngOnInit(): void {
-    this.getSale();
+    this.obtenerVentas();
   }
 
+
+  obtenerVentas(): void {
+    this.saleService.getSale().subscribe(respuesta => {
+      this.return = respuesta;
+      this.ventas = this.return.sale;
+      console.log(this.ventas)
+    });
+
+  }
   getSale() {
     this.saleService.getSale().subscribe(
       (res) => {

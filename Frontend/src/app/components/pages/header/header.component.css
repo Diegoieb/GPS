@@ -1,0 +1,13 @@
+.logo-img {
+    max-height: 100px;
+
+    width: auto;
+  }
+
+  .logo-img.collapsed {
+    display: none;
+  }
+  .topbar{
+    z-index: 1;
+    background-color: white;
+  }

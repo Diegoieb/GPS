@@ -1,33 +1,28 @@
-<h2 class="title-center">Lista de ventas</h2>
-&nbsp;
-<div *ngIf="sales.length > 0">
-  <table class="sales-table">
+<h2 class="text-center">Lista de ventas</h2>
+
+<div class="sales-container">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio Unitario</th>
+        <th>Fecha</th>
         <th>Total</th>
-        <th>Acciones</th>
+    
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let sale of sales">
-        <td>{{ sale.id }}</td>
-        <td>{{ sale.producto }}</td>
-        <td>{{ sale.cantidad }}</td>
-        <td>{{ sale.precioUnitario }}</td>
-        <td>{{ sale.total }}</td>
+      <tr *ngFor="let sale of ventas">
+        <td style="text-align: left; vertical-align: middle;">{{ sale._id }}</td>
+        <td style="text-align: left; vertical-align: middle;">{{ sale.date.slice(0, 10) }}</td>
+        <td style="text-align: left; vertical-align: middle;">${{ sale.total }}</td>
         <td>
-          <button type="button" class="btn btn-danger" (click)="confirmDelete(sale.id)">Eliminar</button>
+          <button  type="button"  class="btn btn-danger" (click)="confirmDelete(sale.id)">Eliminar</button>
         </td>
       </tr>
     </tbody>
   </table>
-</div>
 
-<div *ngIf="sales.length === 0">
-  <h3 class="no-sales-message">No hay ventas realizadas aún...</h3>
+  <div *ngIf="ventas.length === 0" class="text-center">
+    <h3 class="no-sales-message">No hay ventas realizadas aún...</h3>
+  </div>
 </div>
-

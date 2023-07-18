@@ -1,33 +1,22 @@
-
-
 <header class="topbar">
-    <nav class="navbar top-navbar navbar-expand-md navbar-light">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="inicio">
-          <b>
-            <img src="./assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-           
-          </b>
-          <span>
-            <img src="./assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-            
-          </span>
-        </a>
-      </div>
-      <div class="navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a>
-          </li>
-        </ul>
-        <ul class="navbar-nav my-lg-0">
-   
-        </ul>
-      </div>
-    </nav>
-  </header>
-  
-  
+  <nav class="navbar top-navbar navbar-expand-md navbar-light">
+    <div class="navbar-header d-flex align-item-center">
+      <a class="navbar-brand" href="inicio">
+        <img src="./assets/images/logo.png" alt="Mi verdulería" class="logo-img" [class.collapsed]="isCollapsed" />
+
+      </a>
+    </div>
+    <div class="navbar-collapse" [class.collapse]="isCollapsed">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)" (click)="toggleCollapse()"><i class="ti-menu"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)" (click)="toggleCollapse()"><i class="ti-menu"></i></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav my-lg-0">
+      </ul>
+    </div>
+  </nav>
+</header>

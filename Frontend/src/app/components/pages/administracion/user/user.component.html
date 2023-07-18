@@ -1,1 +1,70 @@
-<p>user works!</p>
+<div class="card" id="Reportes">
+    <div class="card-body">
+        <h1 class="card-title">Reportes</h1>
+
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card border-2 border-lightblue shadow-sm rounded report-card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media d-flex">
+                                <div class="media-body text-left">
+                                    <h3 style="color: #17a2b8;">{{productos}}</h3>
+                                    <span class="text-muted">Cantidad de Productos</span>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="mdi mdi-cube-outline success font-large-2 float-right icono"
+                                        style="color: #17a2b8;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card border-2 border-primary shadow-sm rounded report-card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media d-flex">
+                                <div class="media-body text-left">
+                                    <h3 class="text-primary">3</h3>
+                                    <span class="text-muted">Cantidad de Ventas</span>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="mdi mdi-cart-outline primary font-large-2 float-right icono"
+                                        style="color: #007bff;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card border-2 border-info shadow-sm rounded report-card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media d-flex">
+                                <div class="media-body text-left">
+                                    <h3 class="text-info">4</h3>
+                                    <span class="text-muted">Cantidad de Trabajadores</span>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="mdi mdi-account-multiple-outline info font-large-2 float-right icono"
+                                        style="color: #17a2b8;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <button class="btn btn-primary btn-sm" style="position: absolute; top: 10px; right: 10px;"
+            (click)="pdf()">Descargar</button>
+            
+   
+  <div class="card">
+        </div>
+    </div>
+</div>
