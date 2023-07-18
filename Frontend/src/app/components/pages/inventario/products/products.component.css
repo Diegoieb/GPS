@@ -10,3 +10,22 @@
 .margin{
   margin-left: 5px;
 }
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  padding: 20px;
+}
+
+.table {
+  width: 100%;
+}
+
+.form-control {
+  width: 100%;
+}
+
+

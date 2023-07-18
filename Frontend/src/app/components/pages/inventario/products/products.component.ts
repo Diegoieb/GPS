@@ -21,13 +21,18 @@ export class ProductsComponent {
   id:string="";
   rest: any;
 
+  filterName: any;
+  filteredProducts: any[] = [];
+  products: any[] = [];
 
-  products: any[]=[];
   return: any;
   visible: boolean=false;
   insert:boolean=false;
   update:boolean=false;
-  constructor(private serviceProduct: ProductoService, private http: HttpClient, private router:Router){}
+
+  constructor(private serviceProduct: ProductoService, private http: HttpClient, private router:Router){ }
+
+
 
   crearProducto(){
     this.update=false;
@@ -44,10 +49,24 @@ export class ProductsComponent {
       //this.messages = [{ severity: 'error', summary: 'Error', detail: 'Error al ingresar' }];
     })
   }
+
+  // Filtro de productos 
+  filtrarProductos() {
+    if (this.filterName) {
+      this.filteredProducts = this.products.filter(product =>
+        product.name.toLowerCase().includes(this.filterName.toLowerCase()) 
+      );
+    } else {
+      this.filteredProducts = [];
+    }
+  }
+
+
   ngOnInit(){
     this.serviceProduct.getProduct().subscribe((data) => {
     this.return = data;
     this.products= this.return.product;
+    this.filteredProducts = this.products;
     console.log(this.products);
   });
   }
@@ -101,7 +120,6 @@ mostrarDatosInsertar(){
   //activar modal, para que los datos a ingresar se muestren
   this.visible=true;
 }
-
 }
 
 

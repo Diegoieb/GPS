@@ -1,6 +1,18 @@
+&nbsp;
+<div>
+  <h6> Filtro de productos</h6>
+  <input type="text" [(ngModel)]="filterName" (input)="filtrarProductos()" placeholder="Buscar producto" class="form-control mb-3">
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let product of filteredProducts">
+        <td>{{ product.name }}</td>
+        <td>{{ product.code }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <div class="card" >
-  <h1 class="title">Productos</h1>
   <p-table
       [value]="products"
       [paginator]="true"
@@ -8,8 +20,8 @@
       [showCurrentPageReport]="true"
       [tableStyle]="{ 'min-width': '50rem' }"
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-      [rowsPerPageOptions]="[5,10]"
-  >
+      [rowsPerPageOptions]="[5,10]">
+
       <ng-template pTemplate="header">
           <tr>
               <th>Nombre</th>
@@ -20,6 +32,7 @@
               <th >Accion</th>
           </tr>
       </ng-template>
+
       <ng-template pTemplate="body" let-customer>
           <tr>
               <td>{{ customer.name}}</td>
@@ -28,7 +41,7 @@
               <td>{{ customer.code }}</td>
               <td>{{ customer.stock }}</td>
               <td><p-button class="margin" icon="pi pi-times" styleClass="p-button-rounded p-button-danger " (onClick)="eliminarP(customer._id)" ></p-button>
-                  <p-button class="margin" icon="pi pi-search" styleClass="p-button-rounded p-button-warning " (onClick)="mostrarDatosActualizar(customer._id)"></p-button>
+                  <p-button class="margin" icon="pi pi-comment" styleClass="p-button-rounded p-button-warning " (onClick)="mostrarDatosActualizar(customer._id)"></p-button>
               </td>
           </tr>
       </ng-template>
@@ -40,41 +53,48 @@
   </p-table>
 </div>
 <div class="card flex justify-content-center">
-  <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <p-dialog header="Agregar producto" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
 
-    <ng-container  *ngIf="insert">
+    <ng-container *ngIf="insert">
       <form (submit)="crearProducto()">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon">
-              <i class="pi pi-user"></i>
+              <i class="pi pi-align-justify"></i>
           </span>
           <input [value]="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" pInputText placeholder="Nombre" />
       </div>
+      &nbsp;
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-            <i class="pi pi-user"></i>
+            <i class="pi pi-comment"></i>
         </span>
         <input [(ngModel)]="description" [ngModelOptions]="{standalone: true}" pInputText placeholder="Descripcion" />
     </div>
+    &nbsp;
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-            <i class="pi pi-user"></i>
+            <i class="pi pi-money-bill"></i>
         </span>
         <input [(ngModel)]="price" [ngModelOptions]="{standalone: true}" pInputText placeholder="Precio" />
       </div>
+      &nbsp;
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-            <i class="pi pi-user"></i>
+            <i class="pi pi-hashtag"></i>
         </span>
         <input [(ngModel)]="code" [ngModelOptions]="{standalone: true}" pInputText placeholder="Codigo" />
       </div>
+      &nbsp;
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
+          <i class="pi pi-box"></i>
         </span>
         <input [(ngModel)]="stock" [ngModelOptions]="{standalone: true}" pInputText placeholder="Stock" />
       </div>
-      <p-button type="submit" label="Guardar" icon="pi pi-check"></p-button>
+      &nbsp;
+      <div class="text-center">
+        <p-button type="submit" label="Guardar" icon="pi pi-check"></p-button>
+      </div>
     </form>
 
     </ng-container>
@@ -83,35 +103,35 @@
     <form (submit)="updateProduct(id)">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon">
-              <i class="pi pi-user"></i>
+              <i class="pi pi-clone"></i>
           </span>
           <input [value]="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" pInputText placeholder="Nombre" />
       </div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-            <i class="pi pi-user"></i>
+            <i class="pi pi-align-justify"></i>
         </span>
         <input [(ngModel)]="description" [ngModelOptions]="{standalone: true}" pInputText placeholder="Descripcion" />
     </div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-            <i class="pi pi-user"></i>
+            <i class="pi pi-comment"></i>
         </span>
         <input [(ngModel)]="price" [ngModelOptions]="{standalone: true}" pInputText placeholder="Precio" />
       </div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-            <i class="pi pi-user"></i>
+            <i class="pi pi-money-bill"></i>
         </span>
         <input [(ngModel)]="code" [ngModelOptions]="{standalone: true}" pInputText placeholder="Codigo" />
       </div>
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
-          <i class="pi pi-user"></i>
+          <i class="pi pi-hashtag"></i>
         </span>
         <input [(ngModel)]="stock" [ngModelOptions]="{standalone: true}" pInputText placeholder="Stock" />
       </div>
-      <p-button type="submit" label="Guardar" icon="pi pi-check"></p-button>
+      <p-button type="submit" label="Guardar" icon="pi pi-box"></p-button>
     </form>
   </ng-container>
   </p-dialog>
